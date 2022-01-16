@@ -60,12 +60,12 @@ export const Lang = () => {
             <div style={{ marginRight: '0.5rem', cursor: 'pointer' }}
                 onClick={() => setLanguage(Language.BG)}>
                 <ZLink href='/' withLanguage={false}>
-                    <Image src='/../assets/bg.svg' width={d} height={d - 3} alt='Bulgarian' />
+                    <Image src='/bg.svg' width={d} height={d - 3} alt='Bulgarian' />
                 </ZLink>
             </div>
             <div style={{ cursor: 'pointer' }} onClick={() => setLanguage(Language.EN)}>
                 <ZLink href='/?language=en' withLanguage={false}>
-                    <Image src='/../assets/uk.svg' width={d} height={d} alt='English' />
+                    <Image src='/uk.svg' width={d} height={d} alt='English' />
                 </ZLink>
             </div>
         </div>

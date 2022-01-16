@@ -4,9 +4,7 @@ import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 import external from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
-import svg from 'rollup-plugin-svg';
 import dts from 'rollup-plugin-dts';
-import copy from "rollup-plugin-copy-assets";
 
 export default [
     {
@@ -29,12 +27,6 @@ export default [
             commonjs(),
             typescript({ tsconfig: './tsconfig.json' }),
             postcss(),
-            svg(),
-            copy({
-                assets: [
-                    "src/assets",
-                ],
-            }),
             terser(),
         ]
     },

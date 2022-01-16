@@ -1,6 +1,6 @@
 {
   "name": "zeeta",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A collection of components for rapid website development.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -44,19 +44,17 @@
     "next": "^12.0.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
     "rollup": "^2.64.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-copy-assets": "^2.0.3",
     "rollup-plugin-dts": "^4.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-postcss-modules": "^2.0.2",
-    "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript": "^1.0.1",
-    "typescript": "^4.5.4",
-    "react-icons": "^4.3.1"
+    "typescript": "^4.5.4"
   },
   "peerDependencies": {
     "react": "^17.0.2",
