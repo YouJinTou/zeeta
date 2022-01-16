@@ -1,0 +1,43 @@
+.m1r>* {
+    margin: 1rem;
+}
+
+.mb1r>* {
+    margin-bottom: 1rem;
+}
+
+.mr05r>* {
+    margin-right: 0.5rem;
+}
+
+.zoomImageOnHover {
+    overflow: 'hidden';
+}
+
+.zoomImageOnHover img {
+    transition: transform .5s ease;
+}
+
+.zoomImageOnHover:hover img {
+    transform: scale(1.25);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.textFadeIn {
+    animation: fadeIn linear 1s;
+}
+
+.readable {
+    max-width: 75ch;
+    line-height: 2;
+    font-size: 1.2rem;
+}
