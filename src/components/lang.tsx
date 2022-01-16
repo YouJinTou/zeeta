@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { createContext, useContext, useEffect, useState } from 'react';
-import BG from '../assets/bg.svg';
-import UK from '../assets/uk.svg';
 import { ZLink } from './link';
 
 export const H1 = '_h1';
@@ -62,12 +60,12 @@ export const Lang = () => {
             <div style={{ marginRight: '0.5rem', cursor: 'pointer' }}
                 onClick={() => setLanguage(Language.BG)}>
                 <ZLink href='/' withLanguage={false}>
-                    <Image src={BG} width={d} height={d - 3} alt='Bulgarian' />
+                    <Image src='/../assets/bg.svg' width={d} height={d - 3} alt='Bulgarian' />
                 </ZLink>
             </div>
             <div style={{ cursor: 'pointer' }} onClick={() => setLanguage(Language.EN)}>
                 <ZLink href='/?language=en' withLanguage={false}>
-                    <Image src={UK} width={d} height={d} alt='English' />
+                    <Image src='/../assets/uk.svg' width={d} height={d} alt='English' />
                 </ZLink>
             </div>
         </div>
