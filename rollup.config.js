@@ -7,6 +7,7 @@ import autoprefixer from 'autoprefixer';
 import { terser } from 'rollup-plugin-terser';
 import commonjs from 'rollup-plugin-commonjs';
 import copy from "rollup-plugin-copy-assets";
+import svg from 'rollup-plugin-svg';
 
 export default [
     {
@@ -17,21 +18,23 @@ export default [
                 format: 'cjs',
             },
             {
-                file: 'dist/index.es.js',
-                format: 'es',
+                file: 'dist/index.esm.js',
+                format: 'esm',
                 exports: 'named',
             }
         ],
         plugins: [
-            typescript(),
+            external(['react', 'react-dom']),
+            resolve(),
+            commonjs(),
+            typescript({
+                tsconfig: './tsconfig.json',
+            }),
             babel({
                 exclude: 'node_modules/**',
                 presets: ['@babel/preset-react'],
                 external: ['react', 'react-dom'],
             }),
-            commonjs(),
-            external(),
-            resolve(),
             postcss({
                 extract: true,
                 plugins: [autoprefixer()],
@@ -39,10 +42,10 @@ export default [
                 minimize: true,
             }),
             terser(),
+            svg(),
             copy({
                 assets: [
                     "src/assets",
-                    "src/external/buffer.bin",
                 ],
             }),
         ]
