@@ -6,6 +6,7 @@ import postcss from 'rollup-plugin-postcss-modules';
 import autoprefixer from 'autoprefixer';
 import { terser } from 'rollup-plugin-terser';
 import commonjs from 'rollup-plugin-commonjs';
+import copy from "rollup-plugin-copy-assets";
 
 export default [
     {
@@ -38,6 +39,12 @@ export default [
                 minimize: true,
             }),
             terser(),
+            copy({
+                assets: [
+                    "src/assets",
+                    "src/external/buffer.bin",
+                ],
+            }),
         ]
     }
 ];
