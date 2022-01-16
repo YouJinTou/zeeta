@@ -1,13 +1,12 @@
-import babel from 'rollup-plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
-import external from 'rollup-plugin-peer-deps-external';
-import typescript from 'rollup-plugin-typescript';
-import postcss from 'rollup-plugin-postcss-modules';
-import autoprefixer from 'autoprefixer';
+import commonjs from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
-import commonjs from 'rollup-plugin-commonjs';
-import copy from "rollup-plugin-copy-assets";
+import external from 'rollup-plugin-peer-deps-external';
+import postcss from 'rollup-plugin-postcss';
 import svg from 'rollup-plugin-svg';
+import dts from 'rollup-plugin-dts';
+import copy from "rollup-plugin-copy-assets";
 
 export default [
     {
@@ -16,38 +15,33 @@ export default [
             {
                 file: 'dist/index.js',
                 format: 'cjs',
+                sourcemap: true,
             },
             {
                 file: 'dist/index.esm.js',
                 format: 'esm',
-                exports: 'named',
+                sourcemap: true
             }
         ],
         plugins: [
-            external(['react', 'react-dom']),
+            external(),
             resolve(),
             commonjs(),
-            typescript({
-                tsconfig: './tsconfig.json',
-            }),
-            babel({
-                exclude: 'node_modules/**',
-                presets: ['@babel/preset-react'],
-                external: ['react', 'react-dom'],
-            }),
-            postcss({
-                extract: true,
-                plugins: [autoprefixer()],
-                writeDefinitions: true,
-                minimize: true,
-            }),
-            terser(),
+            typescript({ tsconfig: './tsconfig.json' }),
+            postcss(),
             svg(),
             copy({
                 assets: [
                     "src/assets",
                 ],
             }),
+            terser(),
         ]
+    },
+    {
+        input: 'dist/types/index.d.ts',
+        output: [{ file: 'dist/index.d.ts', format: "esm" }],
+        external: [/\.css$/],
+        plugins: [dts()],
     }
-];
+]
