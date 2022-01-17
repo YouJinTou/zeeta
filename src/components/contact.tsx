@@ -13,9 +13,11 @@ const IconStyle = {
 };
 
 export const ContactBar = ({ address, addressSubtext, phones, email,
-    textLeft = undefined, logoPath = undefined }: {
-        address: string, addressSubtext: string, phones: string[], email: string,
-        textLeft?: string, logoPath?: string
+    textLeft = undefined, logoPath = undefined,
+    unoptimized = false, }: {
+        address: string, addressSubtext: string,
+        phones: string[], email: string,
+        textLeft?: string, logoPath?: string, unoptimized?: boolean,
     }) => {
     const { isMobile, isSmallScreen } = useWindowDimensions();
     const [state, setState] = useState({
@@ -38,7 +40,8 @@ export const ContactBar = ({ address, addressSubtext, phones, email,
     return (
         <div style={state.wrapperStyle}>
             <div>
-                {logoPath && <Image src={logoPath} width={100} height={100} alt='logo' />}
+                {logoPath && <Image src={logoPath} width={100} height={100}
+                    alt='logo' unoptimized={unoptimized} />}
                 {textLeft &&
                     <p style={{ fontSize: '2rem', margin: 0, marginLeft: '0.5rem' }}>{textLeft}</p>}
             </div>

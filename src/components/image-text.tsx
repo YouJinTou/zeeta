@@ -9,6 +9,7 @@ export const ImageText = ({
     reverse = false,
     wrapperStyle = {},
     imageSmall = false,
+    unoptimized = false,
     children }: {
         heading?: string,
         children: any,
@@ -16,6 +17,7 @@ export const ImageText = ({
         reverse?: boolean,
         imageSmall?: boolean
         wrapperStyle?: CSSProperties,
+        unoptimized?: boolean,
     }) => {
     const { isMobile, isSmallScreen, windowWidth, windowHeight } = useWindowDimensions();
     const [state, setState] = useState({
@@ -56,7 +58,7 @@ export const ImageText = ({
             </div>
             <div style={state.box2Style}>
                 <Image src={image} width={state.imageWidth} height={state.imageHeight}
-                    alt={heading || children.toString()} />
+                    alt={heading || children.toString()} unoptimized={unoptimized} />
             </div>
         </section>
     )

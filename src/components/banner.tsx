@@ -6,10 +6,11 @@ import styles from './shared.module.css';
 import { ThemeContext } from "./theme";
 
 export const Banner = ({ text, imagePath, withMarginTop = true, parallax = false,
-    textFadeIn = true, }: {
+    textFadeIn = true, unoptimized = false, }: {
         text?: string, imagePath?: string, withMarginTop?: boolean,
         parallax?: boolean,
         textFadeIn?: boolean,
+        unoptimized?: boolean,
     }) => {
     const theme = useContext(ThemeContext);
     const { isMobile, windowWidth } = useWindowDimensions();
@@ -40,7 +41,9 @@ export const Banner = ({ text, imagePath, withMarginTop = true, parallax = false
             ...(parallax && createParallaxOptions({ imagePath, height: state.imageHeight }))
         }}>
             {imagePath && !parallax &&
-                <Image src={imagePath} width={state.imageWidth} height={state.imageHeight} alt='banner' />}
+                <Image src={imagePath} width={state.imageWidth}
+                    unoptimized={unoptimized}
+                    height={state.imageHeight} alt='banner' />}
             {text &&
                 <h1 className={textFadeIn ? styles.textFadeIn : ''}
                     style={{

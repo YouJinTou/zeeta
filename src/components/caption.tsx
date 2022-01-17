@@ -8,7 +8,8 @@ export const Caption = ({
     zoomOnHover = false,
     smallCaption = false,
     withBorderBox = false,
-    withImagePadding = false, }: {
+    withImagePadding = false,
+    unoptimized = false, }: {
         imagePath?: string,
         caption: string,
         subtext?: any,
@@ -16,6 +17,7 @@ export const Caption = ({
         smallCaption?: boolean,
         withBorderBox?: boolean,
         withImagePadding?: boolean,
+        unoptimized?: boolean,
     }) => {
     return (
         <div style={{
@@ -29,7 +31,8 @@ export const Caption = ({
         }}>
             {imagePath && <div className={zoomOnHover ? styles.zoomImageOnHover : ''}
                 style={{ padding: withImagePadding ? '1rem' : undefined, }}>
-                <Image src={imagePath} width={320} height={200} alt={caption} />
+                <Image src={imagePath} width={320} height={200} alt={caption}
+                    unoptimized={unoptimized} />
             </div>}
             <p style={{
                 fontWeight: 500,
