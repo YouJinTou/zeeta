@@ -34,12 +34,12 @@ export default [
         input: 'src/services/index.ts',
         output: [
             {
-                file: 'dist/index.services.js',
+                file: 'dist/services.js',
                 format: 'cjs',
                 sourcemap: true,
             },
             {
-                file: 'dist/index.services.esm.js',
+                file: 'dist/services.esm.js',
                 format: 'esm',
                 sourcemap: true
             }
@@ -60,7 +60,7 @@ export default [
     },
     {
         input: 'dist/types/services/index.d.ts',
-        output: [{ file: 'dist/index.services.d.ts', format: "esm" }],
+        output: [{ file: 'dist/services.d.ts', format: "esm" }],
         external: [/\.css$/],
         plugins: [dts()],
     }
