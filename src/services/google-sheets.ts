@@ -32,7 +32,7 @@ export const getFirst = async (sheetTitle: string, props = _props) => {
     const sheet = await getSheet(sheetTitle, props);
     const row = (await sheet.getRows())[0];
     const keyValues = rowToMap(row);
-    return keyValues;
+    return Object.fromEntries(keyValues);
 }
 
 export const getNormalized = async (sheetTitle: string, props = _props) => {
