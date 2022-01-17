@@ -16,3 +16,5 @@ export * from './components/text-cta';
 export * from './components/theme';
 export * from './utils/css';
 export * from './utils/dom';
+
+export * from './services';
