@@ -31,8 +31,36 @@ export default [
         ]
     },
     {
+        input: 'src/services/index.ts',
+        output: [
+            {
+                file: 'dist/index.services.js',
+                format: 'cjs',
+                sourcemap: true,
+            },
+            {
+                file: 'dist/index.services.esm.js',
+                format: 'esm',
+                sourcemap: true
+            }
+        ],
+        plugins: [
+            external(),
+            resolve(),
+            commonjs(),
+            typescript({ tsconfig: './tsconfig.json' }),
+            terser(),
+        ]
+    },
+    {
         input: 'dist/types/index.d.ts',
         output: [{ file: 'dist/index.d.ts', format: "esm" }],
+        external: [/\.css$/],
+        plugins: [dts()],
+    },
+    {
+        input: 'dist/types/services/index.d.ts',
+        output: [{ file: 'dist/index.services.d.ts', format: "esm" }],
         external: [/\.css$/],
         plugins: [dts()],
     }
