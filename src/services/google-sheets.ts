@@ -1,10 +1,10 @@
-export interface Props {
+export interface SheetsProps {
     client_email: string | undefined,
     private_key: string | undefined,
     docId: string | undefined,
 };
 
-const _props: Props = {
+const _props: SheetsProps = {
     client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
     private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
     docId: process.env.GOOGLE_DOC_ID,
