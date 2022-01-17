@@ -51,7 +51,10 @@ export const LanguageContextWrapper = ({ translations, children }: {
         </LanguageContext.Provider>
     )
 };
-export const Lang = () => {
+export const Lang = ({ bgSvgPath = '/bg.svg', ukSvgPath = '/uk.svg' }: {
+    bgSvgPath?: string,
+    ukSvgPath?: string,
+}) => {
     const { setLanguage } = useContext(LanguageContext);
     const d = 35;
 
@@ -60,12 +63,12 @@ export const Lang = () => {
             <div style={{ marginRight: '0.5rem', cursor: 'pointer' }}
                 onClick={() => setLanguage(Language.BG)}>
                 <ZLink href='/' withLanguage={false}>
-                    <Image src='/bg.svg' width={d} height={d - 3} alt='Bulgarian' />
+                    <Image src={bgSvgPath} width={d} height={d - 3} alt='Bulgarian' />
                 </ZLink>
             </div>
             <div style={{ cursor: 'pointer' }} onClick={() => setLanguage(Language.EN)}>
                 <ZLink href='/?language=en' withLanguage={false}>
-                    <Image src='/uk.svg' width={d} height={d} alt='English' />
+                    <Image src={ukSvgPath} width={d} height={d} alt='English' />
                 </ZLink>
             </div>
         </div>
