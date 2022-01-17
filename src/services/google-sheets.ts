@@ -1,5 +1,3 @@
-const { GoogleSpreadsheet } = require('google-spreadsheet');
-
 export interface Props {
     client_email: string | undefined,
     private_key: string | undefined,
@@ -16,6 +14,7 @@ export const getDoc = async (props = _props) => {
     if (!props.client_email) throw "client_email missing.";
     if (!props.private_key) throw "private_key missing.";
     if (!props.docId) throw "docId missing.";
+    const { GoogleSpreadsheet } = require('google-spreadsheet');
     const doc = new GoogleSpreadsheet(props.docId);
     await doc.useServiceAccountAuth({ ...props });
     await doc.loadInfo();
