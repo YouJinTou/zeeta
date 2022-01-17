@@ -4,11 +4,11 @@ export interface SheetsProps {
     docId: string | undefined,
 };
 
-export interface Data {
+export interface GoogleSheetData {
     rows: any[],
 }
 
-export interface Row {
+export interface GoogleSheetRow {
     data: any,
 }
 
