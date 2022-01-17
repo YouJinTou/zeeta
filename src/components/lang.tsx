@@ -29,6 +29,10 @@ export class Translation {
         }
         return result[language];
     }
+
+    f(bg: string, en: string, language: Language) {
+        return (language === Language.BG ? bg : en) || bg || '';
+    }
 }
 export const LanguageContext = createContext({
     translation: new Translation('/', new Map(), new Map()),
