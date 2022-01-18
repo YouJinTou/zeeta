@@ -11,9 +11,11 @@ export const ZLink = ({ href, children, target, withLanguage = true }: {
         href;
     return (
         <Link href={href_} passHref>
-            <a target={target}>
-                {children}
-            </a>
+            <div>
+                <a target={target}>
+                    {children}
+                </a>
+            </div>
         </Link>
     )
 }
